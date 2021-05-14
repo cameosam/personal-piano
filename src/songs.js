@@ -3,7 +3,7 @@ const songs = [{
         value: ['C4', 'C4', 'D4', 'C4', 'F4', 'E4', 'C4', 'C4', 'D4', 'C4', 'G4', 'F4', 'C4', 'C4', 'C5', 'A5', 'F4', 'F4', 'E4', 'D4', 'A-5', 'A-5', 'A5', 'F4', 'G4', 'F4']
     },
     {
-        name: 'may had a little lamb',
+        name: 'mary had a little lamb',
         value: ['E4', 'D4', 'C4', 'D4', 'E4', 'E4', 'E4', 'D4', 'D4', 'D4', 'E4', 'G4', 'G4', 'E4', 'D4', 'C4', 'D4', 'E4', 'E4', 'E4', 'E4', 'D4', 'D4', 'E4', 'D4', 'C4']
     },
     {
