@@ -1,3 +1,4 @@
 # Personal piano
-
-Available at: https://personalpiano.herokuapp.com/
+- React app that allows you to play the piano with your keyboard or mouse
+- 3 piano modes: freeplay, game, learn
+- Available at personal-piano.vercel.app
