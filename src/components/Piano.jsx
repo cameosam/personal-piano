@@ -2,7 +2,6 @@ import React from "react";
 import Pianokey from "./Pianokey";
 import { makeSound, animateButton } from "../feedback";
 import keyboardKeyNotes from "../keyboardKeyNotes";
-import { Container } from "react-bootstrap";
 
 export default function Piano(props) {
   const [fired, setFired] = React.useState([]);
