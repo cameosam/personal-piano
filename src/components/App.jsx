@@ -18,10 +18,6 @@ export default function App() {
         <Route path="/freeplay" element={<Freeplay />} />
         <Route path="/" element={<Freeplay />} />
       </Routes>
-      <p>
-        <span className="keyboard-color">keyboard keys</span> |{" "}
-        <span className="note-color">piano notes</span>
-      </p>
       <Footer />
     </Router>
   );
