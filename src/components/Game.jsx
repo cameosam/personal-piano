@@ -15,7 +15,7 @@ export default function Game(props) {
   // response to key press
   function keySelect(key) {
     if (level === 0) {
-      setTimeout(() => nextSequence(), 2000);
+      setTimeout(() => nextSequence(), 1500);
     } else {
       setInputPattern((currPattern) => [...currPattern, key]);
       setInputPattern((state) => {
