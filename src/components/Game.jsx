@@ -7,7 +7,7 @@ export default function Game(props) {
   const [gamePattern, setGamePattern] = React.useState([]);
   const [, setInputPattern] = React.useState([]);
   const [level, setLevel] = React.useState(0);
-  const [subtitleGame, setSubtitleGame] = React.useState(
+  const [gameInstuctions, setGameInstuctions] = React.useState(
     "repeat the pattern - press any key to start!"
   );
   const [highScore, sethighScore] = React.useState(0);
@@ -15,7 +15,7 @@ export default function Game(props) {
   // response to key press
   function keySelect(key) {
     if (level === 0) {
-      setTimeout(() => nextSequence(), 700);
+      setTimeout(() => nextSequence(), 2000);
     } else {
       setInputPattern((currPattern) => [...currPattern, key]);
       setInputPattern((state) => {
@@ -28,12 +28,16 @@ export default function Game(props) {
   function nextSequence() {
     setLevel(level + 1);
     level > highScore && sethighScore(level);
-    setSubtitleGame("level: " + level);
+    setGameInstuctions("level: " + level);
     const randomNumber = Math.floor(Math.random() * keyboardKeyNotes.length);
     const randomKey = keyboardKeyNotes[randomNumber].note;
     setGamePattern((currPattern) => [...currPattern, randomKey]);
-    makeSound(randomKey);
-    animateButton(randomKey, "next-key");
+    [...gamePattern, randomKey].forEach((key, i) => {
+      setTimeout(() => {
+        animateButton(key, "next-key");
+        makeSound(key);
+      }, i * 1000);
+    });
   }
 
   function checkAnswer(pattern) {
@@ -43,7 +47,7 @@ export default function Game(props) {
         setTimeout(function () {
           nextSequence();
           setInputPattern([]);
-        }, 500);
+        }, 1000);
       }
     } else {
       const wrongSound1 = new Audio("sounds/A3.mp3");
@@ -52,7 +56,7 @@ export default function Game(props) {
       wrongSound2.play();
       keyboardKeyNotes.forEach((key) => animateButton(key.note, "game-over"));
       setTimeout(function () {
-        setSubtitleGame("game over! press any key to restart");
+        setGameInstuctions("game over! press any key to restart");
         level - 1 > highScore && sethighScore(level - 1);
         startOver();
       }, 500);
@@ -68,9 +72,9 @@ export default function Game(props) {
   return (
     <div>
       <h1>game</h1>
-      <h2>{subtitleGame}</h2>
-      <p>high score: {highScore}</p>
+      <h2>{gameInstuctions}</h2>
       <Piano keySelect={keySelect} />
+      <p className="game-text">high score: {highScore}</p>
     </div>
   );
 }
