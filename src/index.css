@@ -55,25 +55,11 @@ footer {
   padding-top: 8em;
 }
 
-/* .btn-light:focus {
-  outline: none;
-  box-shadow: none;
-  background-color: #f7f7f7;
-  color: #a58faa;
-} */
-
 .btn-dark {
   height: 10em;
   width: 3em;
   padding: 5em 0.1em 0.5em 0;
 }
-
-/* .btn-dark:focus {
-  outline: none;
-  box-shadow: none;
-  background-color: #292b2c;
-  color: #a58faa;
-} */
 
 .white-key {
   display: inline-block;
@@ -101,4 +87,12 @@ footer {
 
 .songs {
   padding: 1em;
+}
+
+.btn-white {
+  color: #3e1447;
+}
+
+.btn-white:hover {
+  color: white;
 }

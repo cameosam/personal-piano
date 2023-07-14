@@ -41,26 +41,24 @@ export default function Learn(props) {
       <h1>learn "{songs[songNumber].name}"</h1>
       <h2>{subtitleLearn}</h2>
       <Piano keySelect={keySelect} />
-      <ButtonGroup name="songs">
-        {songs.map((song, index) => (
-          <Button
-            key={index}
-            type="radio"
-            variant="white"
-            value={index}
-            checked={songNumber === index}
-            onClick={(e) => {
-              setNoteNumber(0);
-              setSongNumber(e.currentTarget.value);
-              setSubtitleLearn(
-                "press " + songs[e.currentTarget.value].value[0] + " to start!"
-              );
-            }}
-          >
-            {song.name}
-          </Button>
-        ))}
-      </ButtonGroup>
+      {songs.map((song, index) => (
+        <Button
+          key={index}
+          type="radio"
+          variant="white"
+          value={index}
+          checked={songNumber === index}
+          onClick={(e) => {
+            setNoteNumber(0);
+            setSongNumber(e.currentTarget.value);
+            setSubtitleLearn(
+              "press " + songs[e.currentTarget.value].value[0] + " to start!"
+            );
+          }}
+        >
+          {song.name}
+        </Button>
+      ))}
     </div>
   );
 }

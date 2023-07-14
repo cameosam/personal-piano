@@ -36,7 +36,7 @@ export default function Piano(props) {
   });
 
   return (
-    <div className="keyboard m-auto py-auto">
+    <div className="keyboard m-auto py-4">
       {keyboardKeyNotes.map((key) => (
         <Pianokey
           key={key.note}
