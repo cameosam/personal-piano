@@ -11,6 +11,7 @@ export default function Pianokey(props) {
             : "keyboard-key btn btn-light"
         }
         id={props.id}
+        onKeyDown={unfocus}
       >
         {props.keyboardKey}
       </button>
@@ -19,4 +20,9 @@ export default function Pianokey(props) {
       </label>
     </div>
   );
+}
+
+function unfocus(event) {
+  event.preventDefault();
+  event.target.blur();
 }
