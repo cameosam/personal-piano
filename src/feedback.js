@@ -9,4 +9,19 @@ function animateButton(key, classAdd) {
   setTimeout(() => activeButton.classList.remove(classAdd), 100);
 }
 
-export { makeSound, animateButton };
+function highlightButton(key) {
+  const activeButton = document.querySelector("#" + key);
+  activeButton.classList.add("next-key");
+  return activeButton;
+}
+
+function resetButton(activeButton) {
+  activeButton.classList.remove("next-key");
+}
+
+function unfocus(event) {
+  event.preventDefault();
+  event.target.blur();
+}
+
+export { makeSound, animateButton, highlightButton, resetButton, unfocus };

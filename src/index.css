@@ -87,12 +87,17 @@ footer {
 
 .songs {
   padding: 1em;
-}
-
-.btn-white {
+  background-color: transparent;
+  border: transparent;
+  background: none;
   color: #3e1447;
 }
 
-.btn-white:hover {
+.songs:hover,
+.songs:focus,
+.songs:active,
+.selected {
+  background-color: transparent !important;
+  border: transparent !important;
   color: white;
 }
