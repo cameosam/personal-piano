@@ -38,8 +38,12 @@ export default function Learn(props) {
               {songs[songNumber].value.slice(noteNumber + 2).join(" ")}
             </p>
           );
-          setNextNoteHighlight(
-            highlightButton(songs[songNumber].value[noteNumber + 1])
+          setTimeout(
+            () =>
+              setNextNoteHighlight(
+                highlightButton(songs[songNumber].value[noteNumber + 1])
+              ),
+            100
           );
         } else {
           setNoteNumber(0);
