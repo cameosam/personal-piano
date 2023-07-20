@@ -9,7 +9,7 @@ export default function Learn(props) {
   const [noteNumber, setNoteNumber] = React.useState(0);
   const [nextNoteHighlight, setNextNoteHighlight] = React.useState(-1);
   const [subtitleLearn, setSubtitleLearn] = React.useState(
-    "press any key to start!"
+    "play the highlighted notes - press any key to start!"
   );
 
   // response to key press
@@ -43,8 +43,16 @@ export default function Learn(props) {
           );
         } else {
           setNoteNumber(0);
-          setNextNoteHighlight(-1);
-          setSubtitleLearn("nice job! press any key to restart");
+          setNextNoteHighlight(highlightButton(songs[songNumber].value[0]));
+          setSubtitleLearn(
+            <p>
+              <strong className="selected">
+                {" "}
+                {songs[songNumber].value[0]}{" "}
+              </strong>
+              {songs[songNumber].value.slice(1).join(" ")}
+            </p>
+          );
         }
       }
     }
@@ -65,7 +73,15 @@ export default function Learn(props) {
           onClick={(e) => {
             setNoteNumber(0);
             setSongNumber(e.currentTarget.value);
-            setSubtitleLearn("press any key to start!");
+            setSubtitleLearn(
+              <p>
+                <strong className="selected">
+                  {" "}
+                  {songs[e.currentTarget.value].value[0]}{" "}
+                </strong>
+                {songs[e.currentTarget.value].value.slice(1).join(" ")}
+              </p>
+            );
             if (nextNoteHighlight != -1) {
               resetButton(nextNoteHighlight);
             }
