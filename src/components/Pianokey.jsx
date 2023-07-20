@@ -1,4 +1,5 @@
 import React from "react";
+import { unfocus } from "../feedback";
 
 export default function Pianokey(props) {
   return (
@@ -20,9 +21,4 @@ export default function Pianokey(props) {
       </label>
     </div>
   );
-}
-
-function unfocus(event) {
-  event.preventDefault();
-  event.target.blur();
 }
